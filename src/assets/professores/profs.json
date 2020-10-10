@@ -1,0 +1,99 @@
+[
+    {
+        "name": "José Henrique Lopes da Silva",
+        "img": "../assets/images/henrique.jpg",
+        "bio": [
+            {
+                "infoName": "Graduação",
+                "infoContent": [
+                    "Formação Tecnólogo em Sistemas para Internet com Pós em Docência na Educação Profissional em Nível Técnico"
+                ]
+            },
+            {
+                "infoName": "Atual área de atuação",
+                "infoContent": [
+                    "Atualmente trabalho na área de Assessoria em Tecnologia da Informação em várias empresas da cidade do Rio Grande, e Professor do Ensino Médio Técnico no Estado do Rio Grande do Sul"
+                ]
+            },
+            {
+                "infoName": "Por que T.I.?",
+                "infoContent": [
+                    "Na década de 90 a tecnologia no Brasil começou a se difundir e, quem não estudasse informática na época iria ficar obsoleto no mercado de trabalho, então por orientação dos meus pais, eles me colocaram em uma escola de informática, e desde então estou sempre estudando novas tecnologias"
+                ]
+            },
+            {
+                "infoName": "Motivação",
+                "infoContent": [
+                    "Gosto de trabalhar com adolescente pois estão em constante formação pessoal e profissional, e nada melhor que o professor para auxiliar em suas futuras escolhas"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cléber Veleda Balota",
+        "img": "../assets/images/clebs.jpg",
+        "bio": [
+            {
+                "infoName": "Graduação",
+                "infoContent": [
+                    "Graduado em Administração de empresas, e Pós graduação em Ciência da Computação (Especialização)"
+                ]
+            },
+            {
+                "infoName": "Atual área de atuação",
+                "infoContent": [
+                    "Atualmente trabalha com Tecnologia da Informação, como analista de sistemas e desenvolvedor de aplicações"
+                ]
+            },
+            {
+                "infoName": "Por que T.I.?",
+                "infoContent": [
+                    "Sempre gostei de ciências, qualquer tipo de ciência desde biologia até astronomia, tudo que se refere a ciência nos seu mais amplo leque de escolhas, mas também gosto de tecnologias e eletrônica, então juntei as duas áreas, tecnologias e ciência da computação"
+                ]
+            },
+            {
+                "infoName": "Motivação",
+                "infoContent": [
+                    "Gosto de pesquisa, de ir na busca por respostas e aprendizagem, porém, acredito ser muito importante compartilhar o conhecimento porque a aprendizagem é minha, mas o conhecimento é da sociedade e devemos colaborar sempre com a melhora da sociedade"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Janaina Senna Martins",
+        "img": "../assets/images/henrique.jpg",
+        "bio": [
+            {
+                "infoName": "Graduação",
+                "infoContent": [
+                    "Geografia Licenciatura Plena"
+                ]
+            },
+            {
+                "infoName": "Pós Graduação",
+                "infoContent": [
+                    "Especialização: Tecnologias da Informação e da Comunicação;",
+                    "Mestrado: Educação Ambiental"
+                ]
+            },
+            {
+                "infoName": "Atual área de atuação",
+                "infoContent": [
+                    "Vice Direção da Escola Brigadeiro José da Silva Paes e Coordenadora do Curso Técnico em Informática Integrado ao Ensino Médio"
+                ]
+            },
+            {
+                "infoName": "Por que T.I.?",
+                "infoContent": [
+                    "Naturalmente desde de meio ingresso na Faculdade, no curso de licenciatura, a área de TI sempre me fascinou, principalmente nesse período (década de 90) onde a ocorreu grande evolução na Informática através dos Computadores Pessoais e disseminação da internet"
+                ]
+            },
+            {
+                "infoName": "Motivação",
+                "infoContent": [
+                    "Sempre gostei de pesquisa cientifica e tecnologias, e acredito que tanto “ensino e estudo” estão intrinsicamente ligados a esta área. Sinto grande satisfação em trabalhar com a docência, desde de criança sempre desejei ser professora"
+                ]
+            }
+        ]
+    }
+]
