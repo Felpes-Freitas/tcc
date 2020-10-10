@@ -1,6 +1,10 @@
 <template>
   <header class="cabecalho">
-    <router-link class="logo" :to="'/'"></router-link>
+    <router-link
+      @click="setVisible(false)"
+      class="logo"
+      :to="'/'"
+    ></router-link>
     <nav :class="{ navbar: true, visible }">
       <ul>
         <li v-for="(route, index) in visibleRoutes" :key="index">
@@ -20,7 +24,7 @@
     </button>
   </header>
   <div class="content">
-    <router-view />
+    <router-view @relative-footer="relativeFooter()" />
   </div>
   <footer class="rodape">
     <p>Escola Estadual De Ensino Médio Brigadeiro José Da Silva Paes</p>
@@ -28,13 +32,28 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import router from "@/router";
 
 export default {
   name: "App",
   setup() {
     const visible = ref(false);
+
+    function relativeFooter() {
+      const footer = document.querySelector(".rodape");
+      footer.style.position = "relative";
+    }
+
+    function fixedFooter() {
+      const footer = document.querySelector(".rodape");
+      footer.style.position = "fixed";
+      footer.style.bottom = "0";
+    }
+
+    watch(router.currentRoute, () => {
+      fixedFooter();
+    });
 
     const visibleRoutes = computed(() => {
       const vRoutes = [];
@@ -60,6 +79,8 @@ export default {
       showHideNav,
       setVisible,
       visibleRoutes,
+      fixedFooter,
+      relativeFooter,
     };
   },
 };
@@ -89,13 +110,16 @@ $darkRedColor: rgb(116, 0, 0);
 }
 
 html {
+  position: relative;
   font-size: 14pt;
+  min-height: 100%;
 }
 
 body {
   background-color: $darkBlueColor;
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 .mobile {
@@ -132,21 +156,38 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+  min-width: 726px;
   height: 50px;
-}
 
-.navbar ul {
-  display: inline-block;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
+  ul {
+    display: inline-block;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 
-.navbar ul li {
-  display: inline-block;
-  height: 100%;
-  padding: 0;
-  margin: 0;
+    li {
+      display: inline-block;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 30px;
+        height: 100%;
+        margin: 0px;
+        font-size: 1.3rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgb(170, 0, 0) /*rgb(0,0,50);*/;
+          text-shadow: 0px 0px 10px white;
+        }
+      }
+    }
+  }
 }
 
 a {
@@ -154,59 +195,46 @@ a {
   color: white;
 }
 
-.navbar ul li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 30px;
-  height: 100%;
-  margin: 0px;
-  font-size: 1.3rem;
-  transition: background-color 0.3s;
-}
-
-.navbar ul li a:hover {
-  background-color: rgb(170, 0, 0) /*rgb(0,0,50);*/;
-  text-shadow: 0px 0px 10px white;
-}
-
 .prettyList {
   list-style-type: none;
   padding: 0px;
   display: inline-block;
-}
 
-.prettyList li {
-  padding: 20px;
-  margin: 10px;
-  display: inline-block;
-  transition: background-color 0.5s;
-}
-
-.prettyList li:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  li {
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    transition: background-color 0.5s;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
 }
 
 /*Background img with parralax and filters*/
-.content::before {
-  content: "";
-  z-index: -1;
-  background-image: url("assets/images/parallaximg.png");
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 120%;
-  /*filter to darken the img*/
-  filter: brightness(40%) blur(2px);
-  /* Parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .content {
+  &::before {
+    content: "";
+    z-index: -1;
+    background-image: url("assets/images/parallaximg.png");
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    // width: 100%;
+    // height: 100%;
+    /*filter to darken the img*/
+    filter: brightness(40%) blur(2px);
+    /* Parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   padding-top: 50px;
 
   #floatdiv {
@@ -232,11 +260,10 @@ a {
   color: white;
 }
 
-footer {
+.rodape {
   display: flex;
   justify-content: center;
   color: white;
-  /* position: fixed; */
   bottom: 0px;
   padding: 10px;
   text-align: center;
@@ -248,8 +275,14 @@ footer {
 }
 
 @media screen and (max-width: 850px) {
-  .navbar ul li a {
-    padding: 0 15px;
+  .navbar {
+    ul {
+      li {
+        a {
+          padding: 0 15px;
+        }
+      }
+    }
   }
 }
 
@@ -258,86 +291,87 @@ footer {
     font-size: 12pt;
   }
 
-  footer {
-    position: relative;
-  }
-
   .mobile {
     display: initial;
-  }
-
-  .navBtn {
-    margin: 0 20px;
-    z-index: 2;
-    background: none;
-    border: none;
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  .bar1,
-  .bar2,
-  .bar3 {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-
-  .change {
-    .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-      transform: rotate(-45deg) translate(-6.5px, 6.5px);
-    }
-
-    .bar2 {
-      opacity: 0;
-    }
-
-    .bar3 {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-6.5px, -6.5px);
-    }
   }
 
   .cabecalho {
     justify-content: flex-end;
     height: 50px;
+
+    .navBtn {
+      margin: 0 20px;
+      z-index: 2;
+      background: none;
+      border: none;
+      display: inline-block;
+      cursor: pointer;
+
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      &.change {
+        .bar1 {
+          -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+          transform: rotate(-45deg) translate(-6.5px, 6.5px);
+        }
+
+        .bar2 {
+          opacity: 0;
+        }
+
+        .bar3 {
+          -webkit-transform: rotate(45deg) translate(-8px, -8px);
+          transform: rotate(45deg) translate(-6.5px, -6.5px);
+        }
+      }
+    }
+
+    .navbar {
+      body ~ * &.visible {
+        overflow: hidden;
+      }
+
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      width: 0;
+      height: 100%;
+      top: 50px;
+      min-width: 0;
+      background-color: rgb(116, 0, 0);
+      transition: width 0.5s ease;
+      z-index: 3;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        opacity: 0%;
+        transition: opacity 0.5s ease;
+        li {
+          height: 10ex;
+        }
+      }
+
+      &.visible {
+        width: 100%;
+        ul {
+          opacity: 100%;
+        }
+      }
+    }
   }
 
-  .navbar {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 0;
-    height: 100%;
-    top: 50px;
-    background-color: rgb(116, 0, 0);
-    transition: width 0.5s ease;
-    z-index: 3;
-  }
-  .navbar.visible {
-    width: 100%;
-  }
-
-  body ~ * .navbar.visible {
-    overflow: hidden;
-  }
-
-  .navbar.visible ul {
-    opacity: 100%;
-  }
-
-  .navbar ul {
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    opacity: 0%;
-    transition: opacity 0.5s ease;
-  }
-  .navbar ul li {
-    height: 10ex;
+  .rodape {
+    position: relative;
   }
 }
 </style>

@@ -2,7 +2,12 @@
   <section :class="{ profCard: true, blueCard: blueProp, sliceUp: upProp }">
     <img
       class="profImg"
-      :src="profProp.img"
+      v-once
+      :src="
+        require(`../assets/images/${
+          imgProp.split('/')[imgProp.split('/').length - 1]
+        }`)
+      "
       :alt="'Foto Do(a) Professor(a) ' + profProp.name"
     />
     <article class="profDesc">
@@ -47,12 +52,14 @@ export default {
     const blueProp = ref(props.blue);
     const upProp = ref(props.up);
     const myIndex = ref(props.index);
-    console.log(profProp.value);
+    const imgProp = profProp.value.img;
+
     return {
       profProp,
       blueProp,
       upProp,
       myIndex,
+      imgProp,
     };
   },
 };
@@ -89,9 +96,22 @@ export default {
   }
 
   .profImg {
+    width: 300px;
+    height: auto;
     display: block;
     float: right;
-    margin: 20px;
+    border-radius: 50%;
+    margin: 20px 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profCard {
+    .profImg {
+      margin: 20px 25%;
+      margin-bottom: 100px;
+      background-color: red;
+    }
   }
 }
 
@@ -113,7 +133,10 @@ export default {
     }
 
     .profImg {
+      margin: 0;
+      margin-bottom: 20px;
       width: 300px;
+      height: auto;
       display: unset;
     }
   }

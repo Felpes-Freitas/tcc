@@ -58,13 +58,22 @@
 <script>
 import ProfCard from "../components/ProfCard";
 import profsList from "../assets/professores/profs";
+import { onBeforeUpdate } from "vue";
 
 export default {
   name: "Introducao",
   components: {
     ProfCard,
   },
-  setup() {
+  emits: ["relative-footer"],
+  setup(_, { emit }) {
+    emit("relative-footer");
+
+    onBeforeUpdate(() => {
+      if (window.innerWidth <= 700) {
+        emit("relative-footer");
+      }
+    });
     return {
       profsList,
     };
