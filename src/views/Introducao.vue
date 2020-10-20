@@ -1,5 +1,6 @@
 <template>
-  <div id="floatdiv">
+  <div class="backgroundImg"></div>
+  <div class="floatdiv">
     <h1>Como tudo começou</h1>
 
     <p class="justificado">

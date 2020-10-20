@@ -107,6 +107,7 @@ $darkRedColor: rgb(116, 0, 0);
 * {
   box-sizing: border-box;
   font-family: "Roboto", arial;
+  outline: none;
 }
 
 html {
@@ -116,10 +117,34 @@ html {
 }
 
 body {
-  background-color: $darkBlueColor;
+  background-color: white;
   padding: 0;
   margin: 0;
   height: 100%;
+  overflow-x: hidden;
+}
+
+.backgroundImg {
+  content: "";
+  z-index: -1;
+  background-image: url("assets/images/parallaximg.png");
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  // width: 100%;
+  // height: 100%;
+  /*filter to darken the img*/
+  filter: brightness(40%); //blur(2px);
+  /* Parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mobile {
@@ -214,30 +239,8 @@ a {
 /*Background img with parralax and filters*/
 
 .content {
-  &::before {
-    content: "";
-    z-index: -1;
-    background-image: url("assets/images/parallaximg.png");
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    // width: 100%;
-    // height: 100%;
-    /*filter to darken the img*/
-    filter: brightness(40%) blur(2px);
-    /* Parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  padding-top: 50px;
-
-  #floatdiv {
+  .floatdiv {
+    margin: 100px 0;
     position: relative;
     width: 100%;
     padding: 0 10%;
@@ -264,14 +267,21 @@ a {
   display: flex;
   justify-content: center;
   color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   bottom: 0px;
-  padding: 10px;
+  padding: 20px 10px;
   text-align: center;
   font-size: 0.8rem;
   width: 100%;
   height: 100px;
   margin: 0;
-  background-color: rgb(5, 5, 30);
+  background-color: $darkBlueColor;
+}
+
+@media screen and(max-height:500px) {
+  .rodape {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -335,10 +345,6 @@ a {
     }
 
     .navbar {
-      body ~ * &.visible {
-        overflow: hidden;
-      }
-
       position: fixed;
       display: flex;
       flex-direction: column;
@@ -362,6 +368,7 @@ a {
       }
 
       &.visible {
+        overflow: hidden;
         width: 100%;
         ul {
           opacity: 100%;

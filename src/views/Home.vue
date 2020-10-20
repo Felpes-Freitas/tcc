@@ -1,5 +1,6 @@
 <template>
-  <div id="floatdiv">
+  <div class="backgroundImg"></div>
+  <div class="floatdiv">
     <h1 class="titulo">
       Bem Vindo ao Curso Técnico em Informática da Escola Estadual Silva Paes!
     </h1>

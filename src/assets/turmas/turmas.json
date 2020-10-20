@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "infos": [
+      {
+        "title": "Descrição",
+        "info": [
+          "Descrição vai aqui..."
+        ]
+      },
+      {
+        "title": "Matérias",
+        "info": [
+          "Algoritimo",
+          "Introdução a computação",
+          "..."
+        ]
+      },
+      {
+        "title": "Professores",
+        "info": [
+          "Cleber Balota",
+          "Janaina Senna"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "infos": [
+      {
+        "title": "Descrição",
+        "info": [
+          "Descrição vai aqui..."
+        ]
+      },
+      {
+        "title": "Matérias",
+        "info": [
+          "Algoritimo",
+          "Introdução a computação",
+          "..."
+        ]
+      },
+      {
+        "title": "Professores",
+        "info": [
+          "Cleber Balota",
+          "José Henrique Lopes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "infos": [
+      {
+        "title": "Descrição",
+        "info": [
+          "Descrição vai aqui..."
+        ]
+      },
+      {
+        "title": "Matérias",
+        "info": [
+          "Algoritimo",
+          "Introdução a computação",
+          "..."
+        ]
+      },
+      {
+        "title": "Professores",
+        "info": [
+          "Cleber Balota",
+          "José Henrique Lopes"
+        ]
+      }
+    ]
+  }
+]

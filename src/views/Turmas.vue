@@ -1,15 +1,29 @@
 <template>
-  <div id="floatdiv">
-      <ul class="prettyList">
-          <a href="TI1.html"><li><h1>Técnico 1</h1></li></a>
-          <a href="TI2.html"><li><h1>Técnico 2</h1></li></a>
-          <a href="TI3.html"><li><h1>Técnico 3</h1></li></a>
-      </ul>
+  <div class="backgroundImg"></div>
+  <div class="floatdiv">
+    <ul class="prettyList">
+      <router-link :to="{ path: '/tecnico/1' }">
+        <li>
+          <h1>Técnico 1</h1>
+        </li>
+      </router-link>
+      <router-link :to="{ path: '/tecnico/2' }">
+        <li>
+          <h1>Técnico 2</h1>
+        </li>
+      </router-link>
+      <router-link :to="{ path: '/tecnico/3' }">
+        <li>
+          <h1>Técnico 3</h1>
+        </li>
+      </router-link>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Turmas',
+  name: "Turmas",
+  emits: ["relative-footer"],
 };
 </script>
