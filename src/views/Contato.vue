@@ -6,6 +6,7 @@
       action="mailto:nethergamer123321@gmail.com"
       class="contact-form"
     >
+      <h1 class="form-title">Entre Em Contato:</h1>
       <p class="input-wraper">
         <label
           :class="{ 'input-lbl': true, up: name !== '' }"
@@ -42,6 +43,7 @@
         <br />
         <textarea
           v-model="message"
+          :class="{ filled: message !== '' }"
           required
           name="msg"
           id="message"
@@ -102,21 +104,31 @@ $darkRedColor: rgb(116, 0, 0);
   .contact-form {
     background-color: rgba(0, 0, 0, 0);
     display: block;
-    margin: 0 0 0 4vw;
-    margin-top: 10vh;
+    margin-top: 5vh;
+    margin-left: 4vw;
     width: 30vw;
     padding: 20px;
     overflow-y: auto;
-    max-height: 85%;
 
     * {
       font-size: 0.9rem;
       color: black;
     }
 
+    .form-title {
+      margin: 0;
+      margin-bottom: 5vh;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
     .input-wraper {
       background-color: rgba(0, 0, 0, 0);
       margin-bottom: 50px;
+
+      &:hover .input-lbl {
+        transform: translateY(-5px);
+      }
 
       .input-lbl {
         display: block;
@@ -124,20 +136,16 @@ $darkRedColor: rgb(116, 0, 0);
         margin-left: 2px;
         transform: translateY(20px);
         transition: transform 0.5s;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: transparent;
 
         &.up {
           transform: translateY(-5px);
         }
       }
 
-      &:hover .input-lbl {
-        transform: translateY(-5px);
-      }
-
       input {
         border: none;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: transparent;
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         // border-color: white;
         display: block;
@@ -152,17 +160,31 @@ $darkRedColor: rgb(116, 0, 0);
         }
 
         &:empty {
-          background-color: rgba(0, 0, 0, 0);
+          background-color: transparent;
         }
       }
 
       textarea {
         display: block;
         width: 100%;
-        height: 80px;
+        min-height: 25px;
+        height: 25px;
+        max-height: 120px;
         position: relative;
-        resize: vertical;
+        overflow: hidden;
+        resize: none;
         background-color: rgba(0, 0, 0, 0);
+        transition: height 0.5s;
+
+        &.filled {
+          height: 80px;
+          overflow: auto;
+        }
+
+        &:hover,
+        &:focus {
+          height: 80px;
+        }
       }
     }
 
@@ -192,6 +214,7 @@ $darkRedColor: rgb(116, 0, 0);
     .contact-form {
       width: 100%;
       margin: 0;
+      margin-top: 5vh;
       padding: 0 10vw;
       padding-top: 10px;
       overflow: initial;
