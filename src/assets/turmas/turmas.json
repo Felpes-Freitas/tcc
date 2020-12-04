@@ -3,24 +3,34 @@
     "id": 1,
     "infos": [
       {
-        "title": "Descrição",
-        "info": [
-          "Descrição vai aqui..."
-        ]
-      },
-      {
-        "title": "Matérias",
-        "info": [
-          "Algoritimo",
-          "Introdução a computação",
-          "..."
-        ]
-      },
-      {
         "title": "Professores",
         "info": [
           "Cleber Balota",
           "Janaina Senna"
+        ]
+      },
+      {
+        "title": "Introdução à Computação",
+        "info": [
+          "Compreender e analisar serviços e funções básicas do sistema operacional Windows, bem como de programas aplicativos."
+        ]
+      },
+      {
+        "title": "Análise e Desenvolvimento de Sistemas",
+        "info": [
+          "Compreender as técnicas de análise de projeto, interpretando funcionalidades de sistemas com base em informações dadas por usuários, com o objetivo de avaliar resultados de testes dos programas desenvolvidos e redação de instruções de uso dos programas implementados."
+        ]
+      },
+      {
+        "title": "Algoritmos e Programação",
+        "info": [
+          "Conhecer técnicas de programação aplicadas a problemas comuns, através de uma linguagem de programação de forma didática. Analisar, avaliar e distinguir diferentes linguagens e ambientes de programação, aplicando-as no desenvolvimento de software. Desenvolver pequenos programas utilizando os principais comandos da linguagem para situações do dia-a-dia."
+        ]
+      },
+      {
+        "title": "Lógica de Programação",
+        "info": [
+          "Compreender os aspectos básicos da lógica computacional, construindo tabelas verdade, com conectivos e simbologias lógicas, a fim de desenvolver proposições lógicas simples. Conhecer os sistemas de numeração utilizados em computação."
         ]
       }
     ]
@@ -29,24 +39,34 @@
     "id": 2,
     "infos": [
       {
-        "title": "Descrição",
-        "info": [
-          "Descrição vai aqui..."
-        ]
-      },
-      {
-        "title": "Matérias",
-        "info": [
-          "Algoritimo",
-          "Introdução a computação",
-          "..."
-        ]
-      },
-      {
         "title": "Professores",
         "info": [
           "Cleber Balota",
           "José Henrique Lopes"
+        ]
+      },
+      {
+        "title": "Estruturas de Dados",
+        "info": [
+          "Conhecer técnicas de programação aplicadas a problemas comuns encontrados no dia-a-dia, compreendendo as diversas estruturas de dados. Solucionar problemas através de diferentes métodos de pesquisa."
+        ]
+      },
+      {
+        "title": "Linguagem de Programação 1",
+        "info": [
+          "Analisar e desenvolver softwares orientados a objeto."
+        ]
+      },
+      {
+        "title": "Banco de Dados",
+        "info": [
+          "Conhecer técnicas de modelagem de dados e linguagens de definição, manipulação e consulta a dados. Administrar bancos de dados."
+        ]
+      },
+      {
+        "title": "Montagem, Instalação e Manutenção de Computadores",
+        "info": [
+          "Instalar, configurar e montar o hardware de computadores, identificando problemas e apontando soluções adequadas com qualidade, responsabilidade e eficiência."
         ]
       }
     ]
@@ -55,24 +75,41 @@
     "id": 3,
     "infos": [
       {
-        "title": "Descrição",
-        "info": [
-          "Descrição vai aqui..."
-        ]
-      },
-      {
-        "title": "Matérias",
-        "info": [
-          "Algoritimo",
-          "Introdução a computação",
-          "..."
-        ]
-      },
-      {
         "title": "Professores",
         "info": [
           "Cleber Balota",
-          "José Henrique Lopes"
+          "José Henrique Lopes",
+          "Janaina Senna"
+        ]
+      },
+      {
+        "title": "Metodologia e Orientação",
+        "info": [
+          "Conceber, planejar e desenvolver trabalhos científicos, tais como manuais e relatórios técnicos na área da Informática, de acordo com os padrões da Associação Brasileira de Normas Técnicas (ABNT). Capacitar o aluno para elaboração do trabalho de conclusão, buscando a correlação e aprofundamento dos conhecimentos teórico-práticos adquiridos no decorrer do curso, assim como proporcionar um espaço supervisionado para o desenvolvimento do TCC."
+        ]
+      },
+      {
+        "title": "Introdução à Sistemas Operacionais",
+        "info": [
+          "Analisar e entender a arquitetura conceitual e o funcionamento geral dos principais componentes dos sistemas operacionais modernos."
+        ]
+      },
+      {
+        "title": "Linguagem de Programação 2 (Web)",
+        "info": [
+          "Conhecer, analisar e aprender linguagens de programação para web e ferramentas de desenvolvimento, através de aplicações web, integrando outras linguagens. Compreender o paradigma de desenvolvimento de sistemas web e as técnicas envolvidas em sites e em sistemas de comércio eletrônico. Conhecer a linguagem de consulta estruturada para manipulação e consulta a dados armazenados."
+        ]
+      },
+      {
+        "title": "Novas Tecnologias em Informática",
+        "info": [
+          "Discutir e estudar novas tecnologias e tópicos atuais na área da informática e sistemas de informação."
+        ]
+      },
+      {
+        "title": "Arquitetura e Projeto de Redes de Computadores",
+        "info": [
+          "Identificar os componentes utilizados em redes de computadores, analisando seu funcionamento e relação entre eles, verificando seu correto funcionamento. Selecionar o sistema operacional de rede, de acordo com as necessidades do usuário, avaliando parâmetros de custo e benefício, orientando-o nas características técnicas. Analisar serviços e funções dos sistemas operacionais de rede, para as atividades de organização, configuração, manutenção e segurança. Identificar a origem de falhas no funcionamento de equipamentos de rede e cabeamentos."
         ]
       }
     ]

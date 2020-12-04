@@ -11,16 +11,16 @@
       :alt="'Foto Do(a) Professor(a) ' + profProp.name"
     />
     <article class="profDesc">
-      <p class="profBio">
-        <span class="profInfoName">Nome: </span>
-        <span class="profInfoContent">{{ profProp.name }}</span>
-      </p>
+      <div class="profBio">
+        <!-- <span class="profInfoName">Nome: </span> -->
+        <h2 class="profInfoContent title">{{ profProp.name }}</h2>
+      </div>
       <p
         v-for="({ infoName, infoContent }, index) in profProp.bio"
         :key="myIndex + '.' + index"
         class="profBio"
       >
-        <span class="profInfoName">{{ infoName }}:</span>
+        <span class="profInfoName">{{ infoName }}</span>
         <span
           v-for="(content, index2) in infoContent"
           :key="myIndex + '.' + index + '.' + index2"
@@ -40,7 +40,7 @@
 import { ref } from "vue";
 
 export default {
-  name: "ProfCard",
+  name: "profCard",
   props: {
     prof: Object,
     blue: Boolean,
@@ -89,6 +89,10 @@ export default {
   .profBio {
     margin: 30px;
 
+    .title {
+      margin-bottom: 80px;
+    }
+
     .profInfoName {
       font-weight: bold;
       font-size: 1.2rem;
@@ -129,6 +133,12 @@ export default {
         clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
         // padding-top: 250px;
         padding-bottom: 0;
+      }
+    }
+
+    .profBio {
+      .title {
+        text-align: center;
       }
     }
 

@@ -1,16 +1,16 @@
 <template>
   <div class="backgroundImg"></div>
   <div class="floatdiv">
-    <h1>Técnico {{ currentClass.id }}:</h1>
+    <h1>Técnico {{ currentClass.id }}</h1>
     <section
       v-for="(infos, index) in currentClass.infos"
       :key="index"
       class="turmaInfos"
     >
-      <h3 class="infoTitle">{{ infos.title }}:</h3>
+      <h2 class="infoTitle">{{ infos.title }}</h2>
       <ul>
-        <li v-for="(info, index) in infos.info" :key="index">
-          {{ info }}
+        <li v-for="(info, index2) in infos.info" :key="index2">
+          <p :class="{ justificado: index > 0 }">{{ info }}</p>
         </li>
       </ul>
     </section>
@@ -44,26 +44,27 @@ export default {
     margin-top: 30px;
     padding: 0;
     display: inline-block;
+    font-weight: bold;
   }
 
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: inline;
+    // display: inline;
 
-    li {
-      &::before {
-        content: " ";
-      }
+    // li {
+    //   &::before {
+    //     content: " ";
+    //   }
 
-      display: inline;
-      margin: 0;
+    //   display: inline;
+    //   margin: 0;
 
-      &::after {
-        content: ",";
-      }
-    }
+    //   &::after {
+    //     content: ",";
+    //   }
+    // }
   }
 }
 </style>

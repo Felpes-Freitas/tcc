@@ -1,9 +1,10 @@
 <template>
   <div class="backgroundImg"></div>
+  <div id="map"></div>
   <div class="contact-container">
     <form
       @submit="clearAllInputs()"
-      action="mailto:nethergamer123321@gmail.com"
+      action="mailto:escolasilvapaes@gmail.com"
       class="contact-form"
     >
       <h1 class="form-title">Entre Em Contato:</h1>
@@ -58,7 +59,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import leaflet from "leaflet";
 
 export default {
   name: "Contato",
@@ -69,6 +71,23 @@ export default {
     const phone = ref("");
     const email = ref("");
     const message = ref("");
+
+    onMounted(addMapToPage);
+
+    function addMapToPage() {
+      let markerContent = `
+          <div class="escola-img" style='background-image: url("images/escola.png");'></div>
+          <p class="marker-desc">
+            <span class="title">Escola Estadual De Ensino Médio Brigadeiro José Da Silva Paes</span>
+            <br/><br/>
+            <span class="body">R. Dr. Isnard Poester Peixoto, 220 - Lar Gaúcho, Rio Grande - RS, 96202-480<br/><br/>Telefone / Fax: (53)32328246</span>
+          </p>
+        `;
+
+      let map = new Map("#map", -32.0448617, -52.0941811);
+      map.makeSatelliteView();
+      map.addMarker(markerContent, -32.0448617, -52.0941811);
+    }
 
     function clearAllInputs() {
       name.value = "";
@@ -86,11 +105,80 @@ export default {
     };
   },
 };
+
+class Map {
+  constructor(element, lon, lag) {
+    this.parentElement =
+      document.querySelector(element) || document.querySelector("body");
+    this.mapElement = this.createMap(lon, lag);
+  }
+
+  createMap(lon, lag) {
+    return leaflet
+      .map(this.parentElement, {
+        minZoom: 3,
+        maxZoom: 17,
+      })
+      .setView([lon, lag], 17);
+  }
+
+  makeSatelliteView() {
+    leaflet
+      .tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 20,
+          maxNativeZoom: 19,
+        }
+      )
+      .addTo(this.mapElement);
+  }
+
+  addMarker(content, lon, lag) {
+    leaflet
+      .marker([lon, lag])
+      .addTo(this.mapElement)
+      .bindPopup(content)
+      .openPopup();
+  }
+}
 </script>
+
+<style lang="scss">
+.escola-img {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.marker-desc {
+  .title {
+    font-size: 0.9rem;
+  }
+  .body {
+    font-size: 0.65rem;
+  }
+}
+</style>
 
 <style scoped lang="scss">
 $darkBlueColor: rgb(0, 0, 40);
 $darkRedColor: rgb(116, 0, 0);
+
+#map {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 68vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: 0;
+}
 
 .contact-container {
   background-color: white;
@@ -98,8 +186,9 @@ $darkRedColor: rgb(116, 0, 0);
   width: 60vw;
   height: 100vh;
   padding-top: 50px;
-  box-shadow: 0px 0px 10px black;
   clip-path: polygon(0 0, 53% 0, 100% 100%, 0% 100%);
+  box-shadow: 0px 0px 10px black !important;
+  z-index: 1;
 
   .contact-form {
     background-color: rgba(0, 0, 0, 0);
@@ -147,6 +236,7 @@ $darkRedColor: rgb(116, 0, 0);
         border: none;
         background-color: transparent;
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        box-shadow: none !important;
         // border-color: white;
         display: block;
         position: relative;
@@ -173,8 +263,10 @@ $darkRedColor: rgb(116, 0, 0);
         position: relative;
         overflow: hidden;
         resize: none;
+        border: 1px solid rgba(0, 0, 0, 0.5);
         background-color: rgba(0, 0, 0, 0);
         transition: height 0.5s;
+        box-shadow: none !important;
 
         &.filled {
           height: 80px;
@@ -196,6 +288,7 @@ $darkRedColor: rgb(116, 0, 0);
       color: white;
       border: none;
       padding: 5px 10px;
+      cursor: pointer;
     }
   }
 }
@@ -207,6 +300,9 @@ $darkRedColor: rgb(116, 0, 0);
 }
 
 @media screen and(max-width:700px) {
+  #map {
+    display: none;
+  }
   .contact-container {
     clip-path: unset;
     width: 100%;

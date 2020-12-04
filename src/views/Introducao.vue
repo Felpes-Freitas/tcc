@@ -46,7 +46,7 @@
     </p>
   </div>
   <div class="profsCardGroup">
-    <ProfCard
+    <profCard
       v-for="(prof, index) in profsList"
       :key="index"
       :prof="prof"
@@ -57,14 +57,14 @@
 </template>
 
 <script>
-import ProfCard from "../components/ProfCard";
+import profCard from "../components/profCard";
 import profsList from "../assets/professores/profs";
 import { onBeforeUpdate } from "vue";
 
 export default {
   name: "Introducao",
   components: {
-    ProfCard,
+    profCard,
   },
   emits: ["relative-footer"],
   setup(_, { emit }) {

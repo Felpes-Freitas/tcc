@@ -1,14 +1,30 @@
 <template>
   <header class="cabecalho">
-    <router-link
-      @click="setVisible(false)"
-      class="logo"
-      :to="'/'"
-    ></router-link>
-    <nav :class="{ navbar: true, visible }">
+    <router-link @click="setMobileNavVisibility(false)" class="logo" :to="'/'">
+      <svg
+        class="home-button"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 14 14"
+      >
+        <defs>
+          <svg:style>
+            .a {
+              fill: none;
+              stroke: #fff;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+            }
+          </svg:style>
+        </defs>
+        <title>Página Inicial</title>
+        <polyline class="a" points="0.5 7 7 0.5 13.5 7" />
+        <polyline class="a" points="2.5 8.5 2.5 13.5 11.5 13.5 11.5 8.5" />
+      </svg>
+    </router-link>
+    <nav :class="{ navbar: true, visible: mobileNavIsVisible }">
       <ul>
         <li v-for="(route, index) in visibleRoutes" :key="index">
-          <router-link :to="route.path" @click="setVisible(false)">
+          <router-link :to="route.path" @click="setMobileNavVisibility(false)">
             {{ route.name }}
           </router-link>
         </li>
@@ -16,7 +32,7 @@
     </nav>
     <button
       @click.prevent="showHideNav"
-      :class="{ mobile: true, navBtn: true, change: visible }"
+      :class="{ mobile: true, navBtn: true, change: mobileNavIsVisible }"
     >
       <div class="bar1"></div>
       <div class="bar2"></div>
@@ -24,10 +40,19 @@
     </button>
   </header>
   <div class="content">
-    <router-view @relative-footer="relativeFooter()" />
+    <router-view
+      @relative-footer="relativeFooter()"
+      @fixed-footer="fixedFooter()"
+    />
   </div>
   <footer class="rodape">
     <p>Escola Estadual De Ensino Médio Brigadeiro José Da Silva Paes</p>
+    <p>
+      <small>
+        R. Dr. Isnard Poester Peixoto, 220 - Lar Gaúcho, Rio Grande - RS,
+        96202-480 | Telefone / Fax: (53)32328246
+      </small>
+    </p>
   </footer>
 </template>
 
@@ -38,7 +63,7 @@ import router from "@/router";
 export default {
   name: "App",
   setup() {
-    const visible = ref(false);
+    const mobileNavIsVisible = ref(false);
 
     function relativeFooter() {
       const footer = document.querySelector(".rodape");
@@ -52,7 +77,7 @@ export default {
     }
 
     watch(router.currentRoute, () => {
-      fixedFooter();
+      relativeFooter();
     });
 
     const visibleRoutes = computed(() => {
@@ -66,18 +91,18 @@ export default {
       return vRoutes;
     });
 
-    function setVisible(bool) {
-      visible.value = bool;
+    function showHideNav() {
+      mobileNavIsVisible.value = !mobileNavIsVisible.value;
     }
 
-    function showHideNav() {
-      setVisible(!visible.value);
+    function setMobileNavVisibility(bool) {
+      mobileNavIsVisible.value = bool;
     }
 
     return {
-      visible,
+      mobileNavIsVisible,
+      setMobileNavVisibility,
       showHideNav,
-      setVisible,
       visibleRoutes,
       fixedFooter,
       relativeFooter,
@@ -106,13 +131,14 @@ $darkRedColor: rgb(116, 0, 0);
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", arial;
+  font-family: "Space Grotesk", "Nunito", "Roboto", arial;
   outline: none;
+  // background-color: rgba(0, 0, 0, 0);
 }
 
 html {
   position: relative;
-  font-size: 14pt;
+  font-size: 1.3vw;
   min-height: 100%;
 }
 
@@ -164,15 +190,19 @@ body {
 }
 
 .logo {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0);
-  min-width: 80px;
+  min-width: 60px;
   min-height: 100%;
   margin-right: auto;
-  background-image: url("assets/images/brasao_2.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 70%;
+  .home-button {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-height: 30px;
+  }
 }
 
 .navbar {
@@ -240,10 +270,11 @@ a {
 
 .content {
   .floatdiv {
+    // font-weight: bold;
     margin: 100px 0;
     position: relative;
     width: 100%;
-    padding: 0 10%;
+    padding: 0 20%;
     text-align: center;
     color: white;
     margin-bottom: 100px;
@@ -267,15 +298,26 @@ a {
   display: flex;
   justify-content: center;
   color: white;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  // border-top: 1px solid rgba(255, 255, 255, 0.1);
   bottom: 0px;
   padding: 20px 10px;
   text-align: center;
   font-size: 0.8rem;
   width: 100%;
   height: 100px;
+  flex-direction: column;
   margin: 0;
-  background-color: $darkBlueColor;
+  background-color: rgb(0, 0, 30);
+
+  p {
+    margin: 0;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+
+    small {
+      font-size: 0.65rem;
+    }
+  }
 }
 
 @media screen and(max-height:500px) {

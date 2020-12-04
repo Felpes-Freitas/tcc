@@ -4,7 +4,7 @@ import Home from '../views/Home.vue';
 import Introducao from '../views/Introducao.vue';
 import Contato from '../views/Contato.vue';
 import Aluno from '../views/Aluno.vue';
-import Atividades from '../views/Atividades.vue';
+import Robotica from '../views/Robotica.vue';
 import Turmas from '../views/Turmas.vue';
 import turmaView from '../components/turmaView.vue';
 
@@ -17,27 +17,27 @@ const routes = [
   },
   {
     path: '/about',
-    name: 'Introdução',
+    name: 'Quem somos',
     component: Introducao,
   },
   {
-    path: '/activities',
-    name: 'Atividades',
-    component: Atividades,
-  },
-  {
     path: '/classes',
-    name: 'Turmas',
+    name: 'Organização Curricular',
     component: Turmas,
   },
   {
+    path: '/activities',
+    name: 'Atividades Extra',
+    component: Robotica,
+  },
+  {
     path: '/student',
-    name: 'Aluno',
+    name: 'Depoimentos',
     component: Aluno,
   },
   {
     path: '/contact',
-    name: 'Contanto',
+    name: 'Contato',
     component: Contato,
   },
   {
