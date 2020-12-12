@@ -46,7 +46,7 @@ import imgs from "../assets/slide/slide.json";
 import slider from "../components/slider";
 
 export default {
-  emits: ["relative-footer"],
+  emits: ["relative-footer", "fixed-footer"],
   components: {
     slider,
   },
@@ -64,9 +64,6 @@ export default {
 .white-area {
   background-color: white;
   height: 500px;
-  * {
-    color: black;
-  }
 }
 
 .description {

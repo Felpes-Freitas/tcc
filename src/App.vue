@@ -30,6 +30,7 @@
         </li>
       </ul>
     </nav>
+    <img class="brasao" src="/images/logo-escola.png" alt="sla" />
     <button
       @click.prevent="showHideNav"
       :class="{ mobile: true, navBtn: true, change: mobileNavIsVisible }"
@@ -189,6 +190,14 @@ body {
   background-color: rgb(116, 0, 0);
 }
 
+.brasao {
+  position: relative;
+  display: block;
+  width: auto;
+  height: 50px;
+  margin: 0 20px;
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -211,7 +220,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-width: 726px;
+  min-width: 850px;
   height: 50px;
 
   ul {
@@ -350,6 +359,14 @@ a {
   .cabecalho {
     justify-content: flex-end;
     height: 50px;
+
+    .brasao {
+      margin: 0 auto;
+    }
+
+    .logo {
+      margin: 0;
+    }
 
     .navBtn {
       margin: 0 20px;

@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: '/student',
-    name: 'Depoimentos',
+    name: 'Mural',
     component: Aluno,
   },
   {

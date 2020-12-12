@@ -14,18 +14,8 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14 14"
       >
-        <defs>
-          <svg:style>
-            .a {
-              fill: none;
-              stroke: #000;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-            }
-          </svg:style>
-        </defs>
         <title>Anterior</title>
-        <path class="a" d="M10.146.5,4,6.646a.5.5,0,0,0,0,.708L10.146,13.5" />
+        <path class="b" d="M10.146.5,4,6.646a.5.5,0,0,0,0,.708L10.146,13.5" />
       </svg>
     </button>
     <ul class="slides">
@@ -54,7 +44,7 @@
       >
         <defs>
           <svg:style>
-            .a {
+            .b {
               fill: none;
               stroke: #000;
               stroke-linecap: round;
@@ -63,7 +53,7 @@
           </svg:style>
         </defs>
         <title>Próxima</title>
-        <path class="a" d="M3.854.5,10,6.646a.5.5,0,0,1,0,.708L3.854,13.5" />
+        <path class="b" d="M3.854.5,10,6.646a.5.5,0,0,1,0,.708L3.854,13.5" />
       </svg>
     </button>
   </div>
@@ -216,6 +206,7 @@ $dotsize: 10px;
       display: flex;
       align-items: flex-end;
       height: 120%;
+      z-index: 0;
 
       .svg-icon {
         display: block;
