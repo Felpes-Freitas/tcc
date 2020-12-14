@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue';
 import Introducao from '../views/Introducao.vue';
 import Contato from '../views/Contato.vue';
-import Aluno from '../views/Aluno.vue';
+import Mural from '../views/Mural.vue';
 import Robotica from '../views/Robotica.vue';
 import Turmas from '../views/Turmas.vue';
 import turmaView from '../components/turmaView.vue';
@@ -31,9 +31,9 @@ const routes = [
     component: Robotica,
   },
   {
-    path: '/student',
+    path: '/feed',
     name: 'Mural',
-    component: Aluno,
+    component: Mural,
   },
   {
     path: '/contact',

@@ -78,7 +78,7 @@ article {
   padding: 20px;
   margin: 20px 0px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 
   svg {
     display: inline-block;

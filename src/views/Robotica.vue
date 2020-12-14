@@ -46,13 +46,11 @@ import imgs from "../assets/slide/slide.json";
 import slider from "../components/slider";
 
 export default {
-  emits: ["relative-footer", "fixed-footer"],
   components: {
     slider,
   },
   name: "Robotica",
-  setup(_, { emit }) {
-    emit("relative-footer");
+  setup() {
     return {
       imgs,
     };

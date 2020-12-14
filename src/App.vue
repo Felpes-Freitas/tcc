@@ -41,10 +41,7 @@
     </button>
   </header>
   <div class="content">
-    <router-view
-      @relative-footer="relativeFooter()"
-      @fixed-footer="fixedFooter()"
-    />
+    <router-view />
   </div>
   <footer class="rodape">
     <p>Escola Estadual De Ensino Médio Brigadeiro José Da Silva Paes</p>
@@ -58,28 +55,13 @@
 </template>
 
 <script>
-import { ref, computed, watch } from "vue";
+import { ref, computed } from "vue";
 import router from "@/router";
 
 export default {
   name: "App",
   setup() {
     const mobileNavIsVisible = ref(false);
-
-    function relativeFooter() {
-      const footer = document.querySelector(".rodape");
-      footer.style.position = "relative";
-    }
-
-    function fixedFooter() {
-      const footer = document.querySelector(".rodape");
-      footer.style.position = "fixed";
-      footer.style.bottom = "0";
-    }
-
-    watch(router.currentRoute, () => {
-      relativeFooter();
-    });
 
     const visibleRoutes = computed(() => {
       const vRoutes = [];
@@ -105,8 +87,6 @@ export default {
       setMobileNavVisibility,
       showHideNav,
       visibleRoutes,
-      fixedFooter,
-      relativeFooter,
     };
   },
 };
@@ -306,6 +286,7 @@ a {
 .rodape {
   display: flex;
   justify-content: center;
+  position: relative;
   color: white;
   // border-top: 1px solid rgba(255, 255, 255, 0.1);
   bottom: 0px;
@@ -434,10 +415,6 @@ a {
         }
       }
     }
-  }
-
-  .rodape {
-    position: relative;
   }
 }
 </style>

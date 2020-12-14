@@ -64,9 +64,7 @@ import leaflet from "leaflet";
 
 export default {
   name: "Contato",
-  emits: ["relative-footer"],
-  setup(_, { emit }) {
-    emit("relative-footer");
+  setup() {
     const name = ref("");
     const phone = ref("");
     const email = ref("");

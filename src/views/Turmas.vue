@@ -35,23 +35,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Turmas",
-  emits: ["fixed-footer", "relative-footer"],
-  beforeMount() {
-    if (window.innerWidth >= 700) {
-      this.$emit("relative-footer");
-    }
-  },
-  beforeUpdate() {
-    if (window.innerWidth >= 700) {
-      this.$emit("relative-footer");
-    }
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 .formacao {
   padding: 0;

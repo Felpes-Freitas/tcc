@@ -19,26 +19,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Home",
-  emits: ["fixed-footer", "relative-footer"],
-  beforeMount() {
-    if (window.innerWidth >= 700) {
-      this.$emit("fixed-footer");
-    } else {
-      this.$emit("relative-footer");
-    }
-  },
-  beforeUpdate() {
-    if (window.innerWidth >= 700) {
-      this.$emit("fixed-footer");
-    } else {
-      this.$emit("relative-footer");
-    }
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .logos {
@@ -50,7 +30,7 @@ export default {
     width: 180px;
     height: auto;
     padding-top: 20px;
-    margin: 0 20px;
+    margin: 50px 0;
   }
 }
 </style>
