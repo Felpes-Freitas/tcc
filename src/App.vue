@@ -400,7 +400,7 @@ a {
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
-        opacity: 0%;
+        opacity: 0;
         transition: opacity 0.5s ease;
         li {
           height: 10ex;
@@ -411,7 +411,7 @@ a {
         overflow: hidden;
         width: 100%;
         ul {
-          opacity: 100%;
+          opacity: 1;
         }
       }
     }
