@@ -4,7 +4,7 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, '/dist')));
 
-const port = 3000;
+const port = 8080;
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)

@@ -28,11 +28,11 @@
     <p class="justificado">
       Todos os trâmites legais foram realizados, como também a reforma e
       construção de um novo laboratório de informática na escola (com mobiliário
-      e equipamentos). A reforma correu por conta da GD da escola (Verba
-      exclusiva para reforma na escola) os equipamentos foram doados pelo MEC em
-      2013/2014 como contrapartida para oferta do Curso Técnico em escolas
-      públicas. Somente em 2014 foi feito edital para convocação de professores
-      especialistas na área de informática.
+      e equipamentos). A reforma correu por conta da Gestão Doméstica da escola
+      (Verba exclusiva para reforma na escola) os equipamentos foram doados pelo
+      MEC em 2013/2014 como contrapartida para oferta do Curso Técnico em
+      escolas públicas. Somente em 2014 foi feito edital para convocação de
+      professores especialistas na área de informática.
     </p>
     <p class="justificado">
       Eu, professora Janaina Martins na época trabalhava no NTE - 18ª CRE
